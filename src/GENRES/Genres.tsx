@@ -1,27 +1,9 @@
-import { useEffect, useState } from "react"
-import { APIresult } from "../FIREBASE/Interface/Types"
-import { getGeneros, ResultGender } from "../FIREBASE/Index"
-import { Link } from "react-router-dom";
+import { useEffect } from "react"
 import './Style/genres.css'
 
 export default function Genres() {
-    const [localGeneratorList, setLocalGeneratorList] = useState<APIresult<ResultGender[]>>({
-        data: {
-            isError: false,
-            result: []
-        },
-        isLoading: true
-    });
 
     const asyncFunction = async () => {
-        const result = await getGeneros([...localGeneratorList.data.result]);
-        setLocalGeneratorList({
-            data: {
-                isError: result.isError,
-                result: result.result
-            },
-            isLoading: false
-        });
     };
 
     useEffect(() => {
@@ -50,7 +32,7 @@ export default function Genres() {
     return (
         <main className="genres">
             <ul className="genres__list">
-                {localGeneratorList.data.result.map((result, index) => (
+                {/*localGeneratorList.data.result.map((result, index) => (
                     <li key={index} className="genres__list__item">
                         <h4 className="genres__list__item__h4">{result.genre}</h4>
                         <hr className="genres__list__item__hr" />
@@ -70,10 +52,10 @@ export default function Genres() {
                             ))}
                         </ul>
                     </li>
-                ))}
+                ))*/}
 
-                {localGeneratorList.isLoading && <span>Cargando Generos...</span>}
-                {localGeneratorList.data.isError && <span>Ocurrió un error inesperado.</span>}
+                {/*localGeneratorList.isLoading && <span>Cargando Generos...</span>*/}
+                {/*localGeneratorList.data.isError && <span>Ocurrió un error inesperado.</span>*/}
             </ul>
         </main>
     );
