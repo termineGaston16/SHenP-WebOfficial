@@ -1,6 +1,6 @@
 import { FaListUl, FaRibbon, FaSearch   } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import './Style/NavHeader.css'
+import './Style/navHeader.css'
 
 export default function NavHeader() {
     return (<nav className="nav-header">
