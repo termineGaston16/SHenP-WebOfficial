@@ -46,3 +46,10 @@ export interface ProjectLost {
     front_page: string,
     description: string
 }
+
+export interface ProjectPreview{
+    official_title: string,
+    category: Category['title'],
+    front_page: string,
+    access_link: string
+}

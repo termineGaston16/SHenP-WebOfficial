@@ -21,6 +21,7 @@
     list-style: none;
     flex-wrap: wrap;
     margin-top: 2rem;
+    padding: 0px 1rem;
 }
 
 .nav-header__list__link {

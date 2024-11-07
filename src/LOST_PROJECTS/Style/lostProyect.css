@@ -1,6 +1,4 @@
 .lost-proyects {
-    border: 1px solid red;
-
     width: 90%;
     max-width: 1200px;
     margin-top: 2.5rem;
@@ -29,8 +27,6 @@
 }
 
 .lost-proyects__list {
-    border: 1px solid yellow;
-
     width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fit, 30vw);
@@ -54,8 +50,6 @@
 
 .lost-proyects__list__item__poster-content,
 .lost-proyects__list__item__data-content {
-    border: 1px solid red;
-
     aspect-ratio: 1 / 1.5;
     width: 15vw;
     margin: 0.4vw;
@@ -82,7 +76,6 @@
 }
 
 .lost-proyects__list__item__data-content__h4 {
-    border: 1px solid khaki;
     width: 100%;
     aspect-ratio: 1/1;
     overflow-y: auto;

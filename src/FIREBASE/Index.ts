@@ -1,4 +1,4 @@
-import { Category, Gender, ProjectLost, Proyecto } from "./Interface/Types";
+import { Category, Gender, ProjectLost, ProjectPreview, Proyecto } from "./Interface/Types";
 import { CATEGORIAS, GENEROS, PROYECTOS, PROYECTOS_PERDIDOS } from '../../DATA_BASE'
 
 //OBTENER LAS CATEGORIAS
@@ -57,4 +57,25 @@ export async function getProyectsLost(listOfProyectLost: ProjectLost[]): Promise
     }
 
     return []
+}
+
+// OBTENER PROYECTOS MEDIANTE QUERY
+export async function getResultsByQuery(query: string): Promise<ProjectPreview[]> {
+
+    const result: ProjectPreview[] = []
+
+    try {
+        (PROYECTOS.filter(proyecto => proyecto.official_title.toLocaleLowerCase().includes(query))).forEach(p => {
+            result.push({
+                access_link: p.access_link,
+                category: p.category,
+                front_page: p.front_page,
+                official_title: p.official_title
+            })
+        })
+
+    } catch (error) {
+        console.error(error)
+    }
+    return result
 }

@@ -231,7 +231,7 @@ export const PROYECTOS_PERDIDOS: ProjectLost[] = [
         producer: "Producer Name 1",
         estimated_year: "2024",
         front_page: "front-page-url-1",
-        description: "Description of Project Title 1"
+        description: `Description of Project Title 1`
     },
     {
         official_title: "Project Title 2",

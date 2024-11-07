@@ -19,6 +19,8 @@
   font-family: 'Retrograde', 'Times New Roman', Times, serif;
   color: white;
   overflow-x: hidden;
+
+  scrollbar-gutter: stable;
 }
 
 /* Cuerpo, aquí se centra la app. Como es el cuerpo ya tiene el ancho */

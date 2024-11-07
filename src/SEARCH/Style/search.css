@@ -1,0 +1,17 @@
+.search{
+    width: 30vw;
+    margin-top: 2rem;
+    border-radius: 2rem;
+    overflow: hidden;
+}
+
+.search__input{
+    width: 90%;
+    height: 100%;
+}
+
+.search__btn-cancel{
+    width: 10%;
+    height: 100%;
+}
+
