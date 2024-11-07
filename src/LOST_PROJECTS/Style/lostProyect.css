@@ -66,18 +66,18 @@
 }
 
 .lost-proyects__list__item__data-content__h2 {
-    font-size: clamp(10px, 1vw, 100px);
+    font-size: clamp(14px, 1.2vw, 100px) !important;
     font-weight: 100;
 }
 
 .lost-proyects__list__item__data-content__h3 {
-    font-size: clamp(8px, 0.7vw, 100px);
+    font-size: clamp(10px, 1vw, 100px) !important;
     font-weight: 100;
 }
 
 .lost-proyects__list__item__data-content__h2,
 .lost-proyects__list__item__data-content__h4 {
-    font-size: clamp(8px, 0.5vw, 100px);
+    font-size: clamp(10px, 1vw, 100px);
     font-weight: 100;
 }
 
