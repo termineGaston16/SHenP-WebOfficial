@@ -1,5 +1,5 @@
-import { Category, Gender, Proyecto } from "./Interface/Types";
-import { CATEGORIAS, GENEROS } from '../../DATA_BASE'
+import { Category, Gender, ProjectLost, Proyecto } from "./Interface/Types";
+import { CATEGORIAS, GENEROS, PROYECTOS, PROYECTOS_PERDIDOS } from '../../DATA_BASE'
 
 //OBTENER LAS CATEGORIAS
 export async function getCatergories(): Promise<Category[]> {
@@ -20,28 +20,41 @@ export async function getCatergories(): Promise<Category[]> {
 }
 
 // OBTENER LISTAS DE GENEROS POR CUATRO
-export interface ResultGender {
-    genre: Gender,
-    proyects: Proyecto[]
-}
-
-export async function getGeneros(localGeneratorList: ResultGender[]): Promise<ResultGender[]> {
-
-    const result: ResultGender[] = localGeneratorList
-
+export async function getGeneros(localGeneratorList: Gender[]): Promise<Gender[]> {
     try {
+        const nextGenres = GENEROS.slice(localGeneratorList.length, localGeneratorList.length + 4);
+        return [...localGeneratorList, ...nextGenres]
 
-        const nextGenres = GENEROS.slice(result.length, result.length + 4);
-        for (let genre of nextGenres) {
-            result.push({
-                genre: genre,
-                proyects: []
-            });
-        }
-        
     } catch (error) {
         console.error(error)
     }
 
-    return result
+    return []
+}
+
+// OBTENER LOS PROYECTOS SEGUN EL GENERO POR CUATRO
+export async function getProyectsByGender(resultGenre: string, listOfProjectsAccordingToGenre: Proyecto[]): Promise<Proyecto[]> {
+
+    try {
+        const proyectsByCategory = PROYECTOS.filter(proyecto => proyecto.gender.includes(resultGenre))
+
+        const nextProyects = proyectsByCategory.slice(listOfProjectsAccordingToGenre.length, listOfProjectsAccordingToGenre.length + 4)
+        return [...listOfProjectsAccordingToGenre, ...nextProyects]
+    } catch (error) {
+        console.error(error)
+    }
+
+    return [];
+}
+
+// OBTENER LOS PROYECTOS PERDIDOS
+export async function getProyectsLost(listOfProyectLost: ProjectLost[]): Promise<ProjectLost[]> {
+    try {
+        const proyectsLost = PROYECTOS_PERDIDOS.slice(listOfProyectLost.length, listOfProyectLost.length + 3)
+        return [...listOfProyectLost, ...proyectsLost]
+    } catch (error) {
+        console.error(error)
+    }
+
+    return []
 }

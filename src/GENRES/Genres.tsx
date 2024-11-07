@@ -1,61 +1,64 @@
-import { useEffect } from "react"
-import './Style/genres.css'
+import { useCallback, useEffect, useRef, useState } from "react";
+import './Style/genres.css';
+import { useQuery } from "react-query";
+import { getGeneros } from "../FIREBASE/Index";
+import ListOfProjectsByGender from "./Elements/ListOfProjectsByGender";
+import { Gender } from "../FIREBASE/Interface/Types";
 
 export default function Genres() {
+    const [localGeneratorList, setLocalGeneratorList] = useState<Gender[]>([]);
 
-    const asyncFunction = async () => {
-    };
+    const { data: listResult = [], isLoading, isError, refetch } = useQuery({
+        queryKey: ["genres"],
+        queryFn: async () => await getGeneros([...localGeneratorList]),
+        refetchOnWindowFocus: false,                  // Evita hacer refetch cuando el usuario regresa a la ventana de la aplicación
+        retry: 2,                                     // Número de intentos de reintento si la consulta falla
+        retryDelay: 2000,                             // Tiempo en milisegundos entre cada reintento si la consulta falla
+        refetchInterval: 1800000,                     // Intervalo para refetch automático cada 30 minutos (1800000 ms)
+        staleTime: 1800000,                           // Tiempo en el cual la caché se considera "fresca" (30 minutos); no hará refetch automático en ese tiempo
+        cacheTime: 3600000,                           // Tiempo que la caché permanece en memoria después de no usarse (1 hora)
+    });
+
+    const observer = useRef<IntersectionObserver | null>(null);
+
+    // Ref del elemento que estará al final de la lista
+    const lastGenreElementRef = useCallback((node: HTMLLIElement | null) => {
+        if (isLoading) return;
+        if (observer.current) observer.current.disconnect();
+
+        observer.current = new IntersectionObserver(entries => {
+            if (entries[0].isIntersecting) {
+                refetch(); // Refetch cuando el último elemento es visible
+            }
+        });
+
+        if (node) observer.current.observe(node);
+    }, [isLoading, refetch]);
 
     useEffect(() => {
-        const handleScroll = () => {
-            const windowHeight = window.innerHeight; // Altura de la ventana visible
-            const scrollTop = window.scrollY; // Cantidad de desplazamiento desde el principio
-            const documentHeight = document.documentElement.scrollHeight; // Altura total del documento
-
-            // Comprobamos si el usuario ha llegado al final
-            if (windowHeight + scrollTop >= documentHeight - 1) {
-                asyncFunction();
-            }
-        };
-
-        // Añadimos el evento de scroll
-        window.addEventListener("scroll", handleScroll);
-
-        // Eliminamos el evento de scroll al desmontar el componente
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
-    }, []);
-
-
+        if (listResult.length > 0) {
+            setLocalGeneratorList(listResult);
+        }
+    }, [listResult]);
 
     return (
         <main className="genres">
             <ul className="genres__list">
-                {/*localGeneratorList.data.result.map((result, index) => (
-                    <li key={index} className="genres__list__item">
-                        <h4 className="genres__list__item__h4">{result.genre}</h4>
-                        <hr className="genres__list__item__hr" />
+                {localGeneratorList.map((gender, index) => {
+                    const isLast = index === localGeneratorList.length - 1
 
-                        <ul className="genres__list__item__results">
-                            {result.proyects.map((proyect, indexProyect) => (
-                                <Link key={indexProyect} to={`/proyecto/${proyect.name_section}`}
-                                    className="genres__list__item__results__link"
-                                >
-                                    <li
-                                        className="genres__list__item__results__link__item"
-                                    >
-                                        <img src={`Portada del proyecto: ${proyect.official_title}`} alt={`${proyect.name_section}`}
-                                            className="genres__list__item__results__link__item__img" />
-                                    </li>
-                                </Link>
-                            ))}
-                        </ul>
-                    </li>
-                ))*/}
+                    return (
+                        <ListOfProjectsByGender
+                            key={index}
+                            resultGenre={gender}
+                            isLast={isLast}
+                            lastGenreElementRef={lastGenreElementRef}
+                        />
+                    )
+                })}
 
-                {/*localGeneratorList.isLoading && <span>Cargando Generos...</span>*/}
-                {/*localGeneratorList.data.isError && <span>Ocurrió un error inesperado.</span>*/}
+                {isLoading && <span>Cargando Géneros...</span>}
+                {isError && <span>Ocurrió un error inesperado.</span>}
             </ul>
         </main>
     );

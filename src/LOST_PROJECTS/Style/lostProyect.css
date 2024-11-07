@@ -1,0 +1,114 @@
+.lost-proyects {
+    border: 1px solid red;
+
+    width: 90%;
+    max-width: 1200px;
+    margin-top: 2.5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+
+    gap: 2vw;
+}
+
+.lost-proyects__title,
+.lost-proyects__descripcion,
+.lost-proyects__list__item__data-content__h2 {
+    font-weight: 100;
+    text-align: center;
+}
+
+.lost-proyects__title {
+    font-size: clamp(18px, 2vw, 100px);
+}
+
+.lost-proyects__descripcion {
+    font-size: clamp(14px, 1.2vw, 100px);
+}
+
+.lost-proyects__list {
+    border: 1px solid yellow;
+
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 30vw);
+    align-items: start;
+    justify-content: center;
+    gap: 1vw;
+
+    list-style: none;
+}
+
+.lost-proyects__list__item {
+    background-color: rgba(255, 255, 255, 0.312);
+    aspect-ratio: 16/9;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    text-align: start;
+}
+
+.lost-proyects__list__item__poster-content,
+.lost-proyects__list__item__data-content {
+    border: 1px solid red;
+
+    aspect-ratio: 1 / 1.5;
+    width: 15vw;
+    margin: 0.4vw;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.6vw;
+}
+
+.lost-proyects__list__item__data-content__h2 {
+    font-size: clamp(10px, 1vw, 100px);
+    font-weight: 100;
+}
+
+.lost-proyects__list__item__data-content__h3 {
+    font-size: clamp(8px, 0.7vw, 100px);
+    font-weight: 100;
+}
+
+.lost-proyects__list__item__data-content__h2,
+.lost-proyects__list__item__data-content__h4 {
+    font-size: clamp(8px, 0.5vw, 100px);
+    font-weight: 100;
+}
+
+.lost-proyects__list__item__data-content__h4 {
+    border: 1px solid khaki;
+    width: 100%;
+    aspect-ratio: 1/1;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+@media (max-width: 900px) {
+    .lost-proyects__list {
+        grid-template-columns: repeat(auto-fit, 43vw);
+    }
+
+
+    .lost-proyects__list__item__poster-content,
+    .lost-proyects__list__item__data-content {
+        width: 30vw;
+    }
+}
+
+@media (max-width: 500px) {
+    .lost-proyects__list {
+        grid-template-columns: repeat(auto-fit, 80vw);
+    }
+
+    .lost-proyects__list__item__poster-content,
+    .lost-proyects__list__item__data-content {
+        width: 35vw;
+
+    }
+}

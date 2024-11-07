@@ -1,5 +1,5 @@
 import { IoBookSharp, IoGameController, IoTvOutline } from "react-icons/io5"
-import { Category, Gender, Proyecto } from "./src/FIREBASE/Interface/Types"
+import { Category, Gender, ProjectLost, Proyecto } from "./src/FIREBASE/Interface/Types"
 
 export const CATEGORIAS: Category[] = [
     {
@@ -224,3 +224,70 @@ export const PROYECTOS: Proyecto[] = [
         `
     }
 ];
+
+export const PROYECTOS_PERDIDOS: ProjectLost[] = [
+    {
+        official_title: "Project Title 1",
+        producer: "Producer Name 1",
+        estimated_year: "2024",
+        front_page: "front-page-url-1",
+        description: "Description of Project Title 1"
+    },
+    {
+        official_title: "Project Title 2",
+        producer: "Producer Name 2",
+        estimated_year: "2023",
+        front_page: "front-page-url-2",
+        description: "Description of Project Title 2"
+    },
+    {
+        official_title: "Project Title 3",
+        producer: "Producer Name 3",
+        estimated_year: "2022",
+        front_page: "front-page-url-3",
+        description: "Description of Project Title 3"
+    },
+    {
+        official_title: "Project Title 3",
+        producer: "Producer Name 3",
+        estimated_year: "2022",
+        front_page: "front-page-url-3",
+        description: "Description of Project Title 3"
+    },
+    {
+        official_title: "Project Title 3",
+        producer: "Producer Name 3",
+        estimated_year: "2022",
+        front_page: "front-page-url-3",
+        description: "Description of Project Title 3"
+    },
+    {
+        official_title: "Project Title 3",
+        producer: "Producer Name 3",
+        estimated_year: "2022",
+        front_page: "front-page-url-3",
+        description: "Description of Project Title 3"
+    },
+    {
+        official_title: "Project Title 3",
+        producer: "Producer Name 3",
+        estimated_year: "2022",
+        front_page: "front-page-url-3",
+        description: "Description of Project Title 3"
+    },
+    {
+        official_title: "Project Title 3",
+        producer: "Producer Name 3",
+        estimated_year: "2022",
+        front_page: "front-page-url-3",
+        description: "Description of Project Title 3"
+    },
+    {
+        official_title: "Project Title 3",
+        producer: "Producer Name 3",
+        estimated_year: "2022",
+        front_page: "front-page-url-3",
+        description: "Description of Project Title 3"
+    }
+];
+

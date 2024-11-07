@@ -38,3 +38,11 @@ export interface Proyecto {
     access_link: string,
     description: string
 }
+
+export interface ProjectLost {
+    official_title: string,
+    producer: string,
+    estimated_year: string,
+    front_page: string,
+    description: string
+}

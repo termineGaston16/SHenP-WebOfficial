@@ -13,10 +13,7 @@ export default function Header() {
     const { data: localCategoryList = [], isError, isLoading } = useQuery({
         queryKey: ['categories'],
         queryFn: async () => await getCatergories(),
-        enabled: true,
         refetchOnWindowFocus: false,
-        
-
     })
 
     return (<>
