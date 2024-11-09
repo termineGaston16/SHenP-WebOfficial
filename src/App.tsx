@@ -9,6 +9,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 const Genres = lazy(() => import('./GENRES/Genres'))
 const LostProyect = lazy(()=> import('./LOST_PROJECTS/LostProyect'))
 const Browse = lazy(()=> import('./SEARCH/Browse'))
+const Proyect = lazy(()=> import('./PROJECT/Proyect'))
 
 export default function App() {
 
@@ -25,7 +26,8 @@ export default function App() {
                 <Route path="/" element={<WhoWeAre />} />
                 <Route path="/generos" element={<Suspense fallback='Cargando componente: Genres'><Genres /></Suspense>} />
                 <Route path="/proyectos-perdidos" element={<Suspense fallback='Cargando componente: LostProyect'><LostProyect/></Suspense>} />
-                <Route path="/buscar" element={<Suspense fallback='Cargando componente: LostProyect'><Browse /></Suspense>} />
+                <Route path="/buscar/:query?" element={<Suspense fallback='Cargando componente: LostProyect'><Browse /></Suspense>} />
+                <Route path="/proyecto/:nameSection?" element={<Suspense fallback='Cargando componente: Proyect'><Proyect/></Suspense>} />
             </Routes>
         </BrowserRouter>
     </QueryClientProvider>

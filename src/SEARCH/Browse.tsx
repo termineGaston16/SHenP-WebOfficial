@@ -2,6 +2,7 @@ import { lazy, Suspense, useState } from "react"
 import Search from "./Element/Search"
 import { useQuery } from "react-query"
 import { getResultsByQuery } from "../FIREBASE/Index"
+import './Style/browse.css'
 
 const Results = lazy(() => import('./Element/Results'))
 
@@ -21,7 +22,7 @@ export default function Browse() {
         enabled: !!querySearch
     })
 
-    return (<main>
+    return (<main className="browse">
         <Search setQuerySearch={setQuerySearch} />
         {querySearch &&
             <Suspense fallback='Loading...'>

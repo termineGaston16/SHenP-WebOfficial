@@ -1,4 +1,7 @@
+import { useCallback, useEffect, useRef, useState } from "react"
 import { ProjectPreview } from "../../FIREBASE/Interface/Types"
+import { Link } from "react-router-dom"
+import '../Style/results.css'
 
 interface Props {
     listOfProyect: ProjectPreview[] | undefined
@@ -7,13 +10,50 @@ interface Props {
 }
 
 const Results: React.FC<Props> = ({ listOfProyect, isLoading, isError }) => {
+    const [resultsByParts, setResultsByParts] = useState<ProjectPreview[]>([])
 
-    console.log(listOfProyect);
-    console.log(isLoading);
-    console.log(isError)
+    const getMoreResults = (listActual: ProjectPreview[]) => {
+        if (!listOfProyect) return
+        const results = listOfProyect.slice(listActual.length, listActual.length + 4)
+        setResultsByParts([...listActual, ...results])
+    }
 
-    return (<ul>
+    const observer = useRef<IntersectionObserver | null>(null)
+    const isInterseccion = useCallback((node: HTMLElement | null) => {
+        if (isLoading) return
+        if (observer.current) observer.current.disconnect()
 
+        observer.current = new IntersectionObserver(entries => {
+            if (entries[0].isIntersecting) console.log(1);
+        })
+        if (node) observer.current.observe(node)
+    }, [])
+
+    useEffect(() => {
+        if(listOfProyect) getMoreResults(listOfProyect)
+    }, [listOfProyect])
+
+    if (resultsByParts.length < 1) return (<span>Universos no encontrados...</span>)
+
+    return (<ul className="results">
+        {resultsByParts.map((result, index) => {
+            const isLast = index === resultsByParts.length - 1
+            return (<Link style={{textDecoration:'none'}} key={index} to={`/proyecto/${result.access_link}`}>
+                <li
+                    ref={isLast ? isInterseccion : null}
+                    className="results__item"
+                >
+                    <h4 className="results__item__h4">{result.category}</h4>
+                    <div className="results__item__container-img">
+                        <img src={result.front_page} alt={`Portada del proyecto ${result.official_title}`} />
+                    </div>
+                    <h2 className="results__item__h2">{result.official_title}</h2>
+                </li>
+            </Link>)
+        })}
+
+        {isLoading && <span>Cargando Géneros...</span>}
+        {isError && <span>Ocurrió un error inesperado.</span>}
     </ul>)
 }
 
