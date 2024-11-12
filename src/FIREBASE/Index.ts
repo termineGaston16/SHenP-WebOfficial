@@ -67,7 +67,7 @@ export async function getResultsByQuery(query: string): Promise<ProjectPreview[]
     try {
         (PROYECTOS.filter(proyecto => proyecto.official_title.toLocaleLowerCase().includes(query))).forEach(p => {
             result.push({
-                access_link: p.access_link,
+                name_section: p.name_section,
                 category: p.category,
                 front_page: p.front_page,
                 official_title: p.official_title
@@ -78,4 +78,16 @@ export async function getResultsByQuery(query: string): Promise<ProjectPreview[]
         console.error(error)
     }
     return result
+}
+
+// OBTENER PROYECTO
+export async function getProyect(nameSectionQuery: string): Promise<Proyecto | undefined>{
+
+    try {
+        return PROYECTOS.find(proyecto => proyecto.name_section === nameSectionQuery)
+    } catch (error) {
+        console.error(error)
+    }
+
+    return undefined
 }

@@ -1,5 +1,5 @@
 .header {
-    z-index: 2;
+    z-index: 3;
 
     width: 250px;
     height: 100vh;
@@ -8,7 +8,6 @@
     position: fixed;
     top: 0;
     left: -220px;
-    z-index: 2;
     transition: ease-in-out .3s;
     
     display: flex;
@@ -25,7 +24,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: 2;
     display: none;
 
     transition: ease-in-out .3s;

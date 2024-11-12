@@ -1,24 +1,17 @@
 .who-we-are{
     width: 90%;
     max-width: 1200px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    align-items: start;
+    justify-content: center;
     height: 85vh;
 
     margin-top: 2rem;
 }
 
-@media (max-width: 768px) {
-    .who-we-are{
-        grid-template-columns: 1fr;
-    }
-    .who-we-are__image-container{
-        order: 2;
-        display: none;
-    }
-}
 
-.who-we-are__image-container, .who-we-are__image-data{
+.who-we-are__image-data{
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;

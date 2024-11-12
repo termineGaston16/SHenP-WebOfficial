@@ -51,5 +51,5 @@ export interface ProjectPreview{
     official_title: string,
     category: Category['title'],
     front_page: string,
-    access_link: string
+    name_section: string,
 }

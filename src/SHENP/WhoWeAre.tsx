@@ -3,9 +3,6 @@ import './Style/whoWeAre.css'
 
 export default function WhoWeAre() {
     return (<main className="who-we-are">
-        <section className="who-we-are__image-container">
-            {/*<img src="" alt="" />*/}
-        </section>
         <section className="who-we-are__image-data">
             <h3 className="who-we-are__image-data__h4">10 años haciendo historia</h3>
             <img src="" alt="" className="who-we-are__image-data__logo"/>

@@ -222,6 +222,142 @@ export const PROYECTOS: Proyecto[] = [
             Goreland es un universo alternativo al nuestro donde Dan, tras una serie de eventos traumáticos, pierde la cordura y desata el caos. 
             Los sucesos que marcaron su vida lo transformaron en una figura oscura y despiadada, quien, junto a sus seguidores, convierte este mundo en un auténtico infierno viviente.
         `
+    },
+    {
+        official_title: 'Goreland',
+        name_section: 'goreland',
+        category: 'Serie',
+        producer: { name: 'Dan ヅ Skeleton', link: 'https://www.youtube.com/@danskeleton4196' },
+        gender: ['ASESINATO', 'SUSPENSO', '+18'],
+        release_date: '5 de diciembre, 2016',
+        intro_link: 'url',
+        logo_link: 'url',
+        front_page: 'url',
+        gallery_link: ['url'],
+        access_link: 'https://www.youtube.com/playlist?list=PLjLDgL49WCR4uKTXGnNyoQfaSbpqygnml',
+        description: `
+            Goreland es un universo alternativo al nuestro donde Dan, tras una serie de eventos traumáticos, pierde la cordura y desata el caos. 
+            Los sucesos que marcaron su vida lo transformaron en una figura oscura y despiadada, quien, junto a sus seguidores, convierte este mundo en un auténtico infierno viviente.
+        `
+    },
+    {
+        official_title: 'Goreland',
+        name_section: 'goreland',
+        category: 'Serie',
+        producer: { name: 'Dan ヅ Skeleton', link: 'https://www.youtube.com/@danskeleton4196' },
+        gender: ['ASESINATO', 'SUSPENSO', '+18'],
+        release_date: '5 de diciembre, 2016',
+        intro_link: 'url',
+        logo_link: 'url',
+        front_page: 'url',
+        gallery_link: ['url'],
+        access_link: 'https://www.youtube.com/playlist?list=PLjLDgL49WCR4uKTXGnNyoQfaSbpqygnml',
+        description: `
+            Goreland es un universo alternativo al nuestro donde Dan, tras una serie de eventos traumáticos, pierde la cordura y desata el caos. 
+            Los sucesos que marcaron su vida lo transformaron en una figura oscura y despiadada, quien, junto a sus seguidores, convierte este mundo en un auténtico infierno viviente.
+        `
+    },
+    {
+        official_title: 'Goreland',
+        name_section: 'goreland',
+        category: 'Serie',
+        producer: { name: 'Dan ヅ Skeleton', link: 'https://www.youtube.com/@danskeleton4196' },
+        gender: ['ASESINATO', 'SUSPENSO', '+18'],
+        release_date: '5 de diciembre, 2016',
+        intro_link: 'url',
+        logo_link: 'url',
+        front_page: 'url',
+        gallery_link: ['url'],
+        access_link: 'https://www.youtube.com/playlist?list=PLjLDgL49WCR4uKTXGnNyoQfaSbpqygnml',
+        description: `
+            Goreland es un universo alternativo al nuestro donde Dan, tras una serie de eventos traumáticos, pierde la cordura y desata el caos. 
+            Los sucesos que marcaron su vida lo transformaron en una figura oscura y despiadada, quien, junto a sus seguidores, convierte este mundo en un auténtico infierno viviente.
+        `
+    },
+    {
+        official_title: 'Goreland',
+        name_section: 'goreland',
+        category: 'Serie',
+        producer: { name: 'Dan ヅ Skeleton', link: 'https://www.youtube.com/@danskeleton4196' },
+        gender: ['ASESINATO', 'SUSPENSO', '+18'],
+        release_date: '5 de diciembre, 2016',
+        intro_link: 'url',
+        logo_link: 'url',
+        front_page: 'url',
+        gallery_link: ['url'],
+        access_link: 'https://www.youtube.com/playlist?list=PLjLDgL49WCR4uKTXGnNyoQfaSbpqygnml',
+        description: `
+            Goreland es un universo alternativo al nuestro donde Dan, tras una serie de eventos traumáticos, pierde la cordura y desata el caos. 
+            Los sucesos que marcaron su vida lo transformaron en una figura oscura y despiadada, quien, junto a sus seguidores, convierte este mundo en un auténtico infierno viviente.
+        `
+    },
+    {
+        official_title: 'Goreland',
+        name_section: 'goreland',
+        category: 'Serie',
+        producer: { name: 'Dan ヅ Skeleton', link: 'https://www.youtube.com/@danskeleton4196' },
+        gender: ['ASESINATO', 'SUSPENSO', '+18'],
+        release_date: '5 de diciembre, 2016',
+        intro_link: 'url',
+        logo_link: 'url',
+        front_page: 'url',
+        gallery_link: ['url'],
+        access_link: 'https://www.youtube.com/playlist?list=PLjLDgL49WCR4uKTXGnNyoQfaSbpqygnml',
+        description: `
+            Goreland es un universo alternativo al nuestro donde Dan, tras una serie de eventos traumáticos, pierde la cordura y desata el caos. 
+            Los sucesos que marcaron su vida lo transformaron en una figura oscura y despiadada, quien, junto a sus seguidores, convierte este mundo en un auténtico infierno viviente.
+        `
+    },
+    {
+        official_title: 'Goreland',
+        name_section: 'goreland',
+        category: 'Serie',
+        producer: { name: 'Dan ヅ Skeleton', link: 'https://www.youtube.com/@danskeleton4196' },
+        gender: ['ASESINATO', 'SUSPENSO', '+18'],
+        release_date: '5 de diciembre, 2016',
+        intro_link: 'url',
+        logo_link: 'url',
+        front_page: 'url',
+        gallery_link: ['url'],
+        access_link: 'https://www.youtube.com/playlist?list=PLjLDgL49WCR4uKTXGnNyoQfaSbpqygnml',
+        description: `
+            Goreland es un universo alternativo al nuestro donde Dan, tras una serie de eventos traumáticos, pierde la cordura y desata el caos. 
+            Los sucesos que marcaron su vida lo transformaron en una figura oscura y despiadada, quien, junto a sus seguidores, convierte este mundo en un auténtico infierno viviente.
+        `
+    },
+    {
+        official_title: 'Goreland',
+        name_section: 'goreland',
+        category: 'Serie',
+        producer: { name: 'Dan ヅ Skeleton', link: 'https://www.youtube.com/@danskeleton4196' },
+        gender: ['ASESINATO', 'SUSPENSO', '+18'],
+        release_date: '5 de diciembre, 2016',
+        intro_link: 'url',
+        logo_link: 'url',
+        front_page: 'url',
+        gallery_link: ['url'],
+        access_link: 'https://www.youtube.com/playlist?list=PLjLDgL49WCR4uKTXGnNyoQfaSbpqygnml',
+        description: `
+            Goreland es un universo alternativo al nuestro donde Dan, tras una serie de eventos traumáticos, pierde la cordura y desata el caos. 
+            Los sucesos que marcaron su vida lo transformaron en una figura oscura y despiadada, quien, junto a sus seguidores, convierte este mundo en un auténtico infierno viviente.
+        `
+    },
+    {
+        official_title: 'Goreland',
+        name_section: 'goreland',
+        category: 'Serie',
+        producer: { name: 'Dan ヅ Skeleton', link: 'https://www.youtube.com/@danskeleton4196' },
+        gender: ['ASESINATO', 'SUSPENSO', '+18'],
+        release_date: '5 de diciembre, 2016',
+        intro_link: 'url',
+        logo_link: 'url',
+        front_page: 'url',
+        gallery_link: ['url'],
+        access_link: 'https://www.youtube.com/playlist?list=PLjLDgL49WCR4uKTXGnNyoQfaSbpqygnml',
+        description: `
+            Goreland es un universo alternativo al nuestro donde Dan, tras una serie de eventos traumáticos, pierde la cordura y desata el caos. 
+            Los sucesos que marcaron su vida lo transformaron en una figura oscura y despiadada, quien, junto a sus seguidores, convierte este mundo en un auténtico infierno viviente.
+        `
     }
 ];
 
