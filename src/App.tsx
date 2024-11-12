@@ -10,10 +10,11 @@ const Genres = lazy(() => import('./GENRES/Genres'));
 const LostProyect = lazy(() => import('./LOST_PROJECTS/LostProyect'));
 const Browse = lazy(() => import('./SEARCH/Browse'));
 const Proyect = lazy(() => import('./PROJECT/Proyect'));
+const Configuration = lazy(()=> import('./SHENP/Configuration'))
 
 const AppContent = () => {
     const location = useLocation();
-    const componentsWithoutNavbar = ['/proyecto/'];
+    const componentsWithoutNavbar = ['/proyecto/', '/configuracion'];
     const showNavHeader = !componentsWithoutNavbar.some(route => location.pathname.startsWith(route));
 
     return (
@@ -27,7 +28,9 @@ const AppContent = () => {
                 <Route path="/generos" element={<Suspense fallback="Cargando componente: Genres"><Genres /></Suspense>} />
                 <Route path="/proyectos-perdidos" element={<Suspense fallback="Cargando componente: LostProyect"><LostProyect /></Suspense>} />
                 <Route path="/buscar/:query?" element={<Suspense fallback="Cargando componente: Browse"><Browse /></Suspense>} />
+                <Route path="/:category?" element={<Suspense fallback="Cargando componente: Browse"><Browse /></Suspense>} />
                 <Route path="/proyecto/:nameSection?" element={<Suspense fallback="Cargando componente: Proyect"><Proyect /></Suspense>} />
+                <Route path="/configuracion" element={<Suspense fallback="Cargando componente: Configuration"><Configuration /></Suspense>} />
             </Routes>
         </>
     );

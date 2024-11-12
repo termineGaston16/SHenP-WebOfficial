@@ -1,5 +1,5 @@
-import { Category, Gender, ProjectLost, ProjectPreview, Proyecto } from "./Interface/Types";
-import { CATEGORIAS, GENEROS, PROYECTOS, PROYECTOS_PERDIDOS } from '../../DATA_BASE'
+import { Category, Configuration, Gender, ProjectLost, ProjectPreview, Proyecto } from "./Interface/Types";
+import { CATEGORIAS, CONFIGURACION, GENEROS, PROYECTOS, PROYECTOS_PERDIDOS } from '../../DATA_BASE'
 
 //OBTENER LAS CATEGORIAS
 export async function getCatergories(): Promise<Category[]> {
@@ -81,7 +81,7 @@ export async function getResultsByQuery(query: string): Promise<ProjectPreview[]
 }
 
 // OBTENER PROYECTO
-export async function getProyect(nameSectionQuery: string): Promise<Proyecto | undefined>{
+export async function getProyect(nameSectionQuery: string): Promise<Proyecto | undefined> {
 
     try {
         return PROYECTOS.find(proyecto => proyecto.name_section === nameSectionQuery)
@@ -90,4 +90,43 @@ export async function getProyect(nameSectionQuery: string): Promise<Proyecto | u
     }
 
     return undefined
+}
+
+// OBTENER PROYECTOS POR CATEGORIA
+export async function getResultsByCategory(categoryQuery: string): Promise<ProjectPreview[]> {
+
+    const results: ProjectPreview[] = []
+
+    try {
+        PROYECTOS.filter(proyecto => proyecto.category.toLocaleLowerCase() + 's' === categoryQuery).forEach(p => {
+            results.push({
+                category: p.category,
+                front_page: p.front_page,
+                name_section: p.name_section,
+                official_title: p.official_title
+            })
+        })
+    } catch (error) {
+        console.error(error)
+    }
+    return results
+}
+
+// OBTENER OPCIONES DE LA CONFIGURACION
+export async function getOptions(): Promise<Configuration<{ titleContent: string, imgContent: string }[] | string>[]> {
+    const results: Configuration<{ titleContent: string, imgContent: string }[] | string>[] = []
+
+    try {
+        CONFIGURACION.forEach(option => {
+            results.push({
+                content: option.content,
+                description: option.description,
+                title: option.title
+            })
+        })
+    } catch (error) {
+        console.error(error)
+    }
+
+    return results;
 }

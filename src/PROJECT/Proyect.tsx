@@ -80,52 +80,7 @@ export default function Proyect() {
                         className="proyect__component-two__list-gallery__item"
                         key={i}><img src={p} alt={`${proyect.name_section} galería número: ${i}`} />
                     </li>
-                    <li
-                        onClick={() => setShowImage({
-                            index: i,
-                            link: p,
-                            show: true
-                        })}
-                        className="proyect__component-two__list-gallery__item"
-                        key={i}><img src={p} alt={`${proyect.name_section} galería número: ${i}`} />
-                    </li>
-                    <li
-                        onClick={() => setShowImage({
-                            index: i,
-                            link: p,
-                            show: true
-                        })}
-                        className="proyect__component-two__list-gallery__item"
-                        key={i}><img src={p} alt={`${proyect.name_section} galería número: ${i}`} />
-                    </li>
-                    <li
-                        onClick={() => setShowImage({
-                            index: i,
-                            link: p,
-                            show: true
-                        })}
-                        className="proyect__component-two__list-gallery__item"
-                        key={i}><img src={p} alt={`${proyect.name_section} galería número: ${i}`} />
-                    </li>
-                    <li
-                        onClick={() => setShowImage({
-                            index: i,
-                            link: p,
-                            show: true
-                        })}
-                        className="proyect__component-two__list-gallery__item"
-                        key={i}><img src={p} alt={`${proyect.name_section} galería número: ${i}`} />
-                    </li><li
-                        onClick={() => setShowImage({
-                            index: i,
-                            link: p,
-                            show: true
-                        })}
-                        className="proyect__component-two__list-gallery__item"
-                        key={i}><img src={p} alt={`${proyect.name_section} galería número: ${i}`} />
-                    </li>
-                    
-                    </>))}
+                </>))}
             </ul>
         </section>
 
@@ -137,9 +92,9 @@ export default function Proyect() {
                     show: false
                 })}
                 type="button">⨉</button>
-            <img 
-            className="proyect__show-image__img"
-            src={showImage.link} alt={`${proyect.name_section} galería número: ${showImage.index}`} />
+            <img
+                className="proyect__show-image__img"
+                src={showImage.link} alt={`${proyect.name_section} galería número: ${showImage.index}`} />
         </div>}
         {isLoading && <span>Cargando Proyecto...</span>}
         {isError && <span>Ocurrió un error inesperado.</span>}

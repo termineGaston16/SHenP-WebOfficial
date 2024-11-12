@@ -53,3 +53,9 @@ export interface ProjectPreview{
     front_page: string,
     name_section: string,
 }
+
+export interface Configuration<T>{
+    title: string,
+    description: string,
+    content: T
+}

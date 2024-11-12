@@ -1,5 +1,6 @@
 import { IoBookSharp, IoGameController, IoTvOutline } from "react-icons/io5"
-import { Category, Gender, ProjectLost, Proyecto } from "./src/FIREBASE/Interface/Types"
+import { Category, Configuration, Gender, ProjectLost, Proyecto } from "./src/FIREBASE/Interface/Types"
+import { BiSolidBookContent } from "react-icons/bi";
 
 export const CATEGORIAS: Category[] = [
     {
@@ -13,6 +14,10 @@ export const CATEGORIAS: Category[] = [
     {
         title: 'SERIES',
         icon: IoTvOutline
+    },
+    {
+        title: 'COMICS',
+        icon: BiSolidBookContent
     },
 ]
 
@@ -426,4 +431,42 @@ export const PROYECTOS_PERDIDOS: ProjectLost[] = [
         description: "Description of Project Title 3"
     }
 ];
+
+export const CONFIGURACION: Configuration<{ titleContent: string, imgContent: string }[] | string>[] = [{
+    title: 'Cambiar Logo',
+    description: 'Cambia el logotipo de la página oficial.',
+    content: [{
+        titleContent: 'Logo Web',
+        imgContent: 'public/logos/Logo_Web.png'
+    },
+    {
+        titleContent: 'Logo Clásico',
+        imgContent: 'public/logos/Logo_Clasico.png'
+    },
+    {
+        titleContent: 'Logo Clásico Nueva Generacion',
+        imgContent: 'public/logos/Logo_Clasico_NuevaGeneracion.png'
+    }]
+},
+{
+    title: 'Cambiar Background',
+    description: 'Cambia el fondo princial de la página.',
+    content: [{
+        titleContent: 'Universos',
+        imgContent: 'public/backgrounds/background_web.png'
+    },
+    {
+        titleContent: 'The Crystal',
+        imgContent: 'public/backgrounds/background_the-crystal.png'
+    },
+    {
+        titleContent: 'Nova Universo Alterno',
+        imgContent: 'public/backgrounds/background_nova-universo-alterno.png'
+    }]
+},
+{
+    title: 'Cambiar Opacidad',
+    description: 'Ajusta la opacidad del fondo.',
+    content: '0.1'
+}]
 
