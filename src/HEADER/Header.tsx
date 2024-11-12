@@ -45,7 +45,7 @@ export default function Header() {
             onMouseEnter={() => setOpenHeader(['open-background', 'open-header'])}
             onMouseLeave={() => setOpenHeader(['', ''])}>
 
-            <Link to={'/'}><img src={logoSrc} alt={`Logo actual: ${logoSrc}}`} className="header__logo-main" /></Link>
+            <Link to={'/'}><img src={logoSrc} alt={`Logo actual: ${logoSrc}`} className="header__logo-main" /></Link>
             <hr className="header__hr" />
             <ul className="header__list">
                 <Link to={'/'} className="header__list__item__link">
