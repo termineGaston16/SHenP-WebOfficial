@@ -69,3 +69,7 @@
     min-width: 20vw;
     width: 20vw;
 }
+
+.genres__list__item__results__link__item__img{
+    width: 100%;
+}

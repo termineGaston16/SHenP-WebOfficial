@@ -25,7 +25,7 @@ export default function Proyect() {
         refetchOnWindowFocus: false,                  // Evita hacer refetch cuando el usuario regresa a la ventana de la aplicación
         retry: 2,                                     // Número de intentos de reintento si la consulta falla
         retryDelay: 2000,                             // Tiempo en milisegundos entre cada reintento si la consulta falla
-        refetchInterval: false,                     // Intervalo para refetch automático cada 30 minutos (1800000 ms)
+        refetchInterval: false,                         // Intervalo para refetch automático cada 30 minutos (1800000 ms)
     })
 
     if (!proyect) return (<span>Proyecto no encontrado</span>)
@@ -34,6 +34,8 @@ export default function Proyect() {
         <section className="proyect__component-one">
             <div className="proyect__component-one__official-cover-container">
                 <img
+                    loading="lazy"
+                    style={{ width: '100%' }}
                     src={proyect.intro_link}
                     className="proyect__component-one__official-cover-container__cover"
                     alt={`Intro del proyecto ${proyect.name_section}`} />
@@ -64,6 +66,8 @@ export default function Proyect() {
         <section className="proyect__component-two">
             <div className="proyect__component-two__official-logo-container">
                 <img
+                    loading="lazy"
+                    style={{ width: '100%' }}
                     className="proyect__component-two__official-logo-container__logo"
                     src={proyect.logo_link}
                     alt={`Logo Oficial del proyecto ${proyect.name_section}`} />
@@ -78,7 +82,7 @@ export default function Proyect() {
                             show: true
                         })}
                         className="proyect__component-two__list-gallery__item"
-                        key={i}><img src={p} alt={`${proyect.name_section} galería número: ${i}`} />
+                        key={i}><img style={{ width: '100%' }} loading="lazy" src={p} alt={`${proyect.name_section} galería número: ${i}`} />
                     </li>
                 </>))}
             </ul>
@@ -93,6 +97,8 @@ export default function Proyect() {
                 })}
                 type="button">⨉</button>
             <img
+                loading="lazy"
+                style={{ width: '50%' }}
                 className="proyect__show-image__img"
                 src={showImage.link} alt={`${proyect.name_section} galería número: ${showImage.index}`} />
         </div>}

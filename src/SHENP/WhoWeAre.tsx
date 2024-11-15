@@ -5,7 +5,7 @@ export default function WhoWeAre() {
     return (<main className="who-we-are">
         <section className="who-we-are__image-data">
             <h3 className="who-we-are__image-data__h4">10 años haciendo historia</h3>
-            <img src="https://drive.google.com/uc?export=view&id=1dWrtU1l0kvJfRmnWEIJ3hqcWDGaKOeel" alt="" className="who-we-are__image-data__logo"/>
+            <img src="https://i.postimg.cc/K8d2VQwM/backpage-glitch-war.jpg" alt="" className="who-we-are__image-data__logo"/>
             <h2 className="who-we-are__image-data__h2">Series hechas en Paint</h2>
             <h3 className="who-we-are__image-data__h4">¡Dibujamos por pasión!</h3>
             <p className="who-we-are__image-data__description">Entre amigos, forjamos mundos desde la imaginación, donde la creatividad y la diversión se entrelazan en series, juegos, y cómics originales. <br /> ¡Bienvenido/a a SHEP!</p>

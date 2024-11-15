@@ -63,8 +63,8 @@ const ListOfProjectsByGender: React.FC<Props> = ({ resultGenre, isLast, lastGenr
                                 className="genres__list__item__results__link__item"
                             >
                                 <img
-                                    src={`Portada del proyecto: ${proyect.official_title}`}
-                                    alt={`${proyect.name_section}`}
+                                    src={proyect.front_page}
+                                    alt={`Portada del proyecto: ${proyect.official_title}`}
                                     className="genres__list__item__results__link__item__img"
                                 />
                             </li>

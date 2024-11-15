@@ -15,11 +15,13 @@ const AsynchronousComponent: React.FC<props> = ({ localCategoryList, className, 
                 localCategoryList.map((categories, index) => (
                     <Link key={index} style={{ textDecoration: 'none', color: 'white' }}
                         to={`/${categories.title.toLocaleLowerCase()}`}>
-                        <li className={className}>{categories.title} <categories.icon /></li>
+                        <li className={className}>{categories.title} </li>
                     </Link>
                 ))
         }
     </>)
 }
+
+//<categories.icon />
 
 export default AsynchronousComponent;

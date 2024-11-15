@@ -1,6 +1,6 @@
-import { IoBookSharp, IoGameController, IoTvOutline } from "react-icons/io5"
+/*
 import { Category, Configuration, Gender, ProjectLost, Proyecto } from "./src/FIREBASE/Interface/Types"
-import { BiSolidBookContent } from "react-icons/bi";
+
 
 export const CATEGORIAS: Category[] = [
     {
@@ -468,5 +468,5 @@ export const CONFIGURACION: Configuration<{ titleContent: string, imgContent: st
     title: 'Cambiar Opacidad',
     description: 'Ajusta la opacidad del fondo.',
     content: '0.1'
-}]
+}] */
 
