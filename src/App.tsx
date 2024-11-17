@@ -4,6 +4,7 @@ import WhoWeAre from "./SHENP/WhoWeAre";
 import Header from "./HEADER/Header";
 import { lazy, Suspense } from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
+import LoadingComponent from "./SHENP/LoadingComponents/LoadingComponent";
 
 // LAZY
 const Genres = lazy(() => import('./GENRES/Genres'));
@@ -25,12 +26,12 @@ const AppContent = () => {
             <Routes>
                 <Route path="*" element={'ERROR 404'} />
                 <Route path="/" element={<WhoWeAre />} />
-                <Route path="/generos" element={<Suspense fallback="Cargando componente: Genres"><Genres /></Suspense>} />
-                <Route path="/proyectos-perdidos" element={<Suspense fallback="Cargando componente: LostProyect"><LostProyect /></Suspense>} />
-                <Route path="/buscar/:query?" element={<Suspense fallback="Cargando componente: Browse"><Browse /></Suspense>} />
-                <Route path="/:category?" element={<Suspense fallback="Cargando componente: Browse"><Browse /></Suspense>} />
-                <Route path="/proyecto/:nameSection?" element={<Suspense fallback="Cargando componente: Proyect"><Proyect /></Suspense>} />
-                <Route path="/configuracion" element={<Suspense fallback="Cargando componente: Configuration"><Configuration /></Suspense>} />
+                <Route path="/generos" element={<Suspense fallback={<LoadingComponent/>}><Genres/></Suspense>} />
+                <Route path="/proyectos-perdidos" element={<Suspense fallback={<LoadingComponent/>}><LostProyect /></Suspense>} />
+                <Route path="/buscar/:query?" element={<Suspense fallback={<LoadingComponent/>}><Browse /></Suspense>} />
+                <Route path="/:category?" element={<Suspense fallback={<LoadingComponent/>}><Browse /></Suspense>} />
+                <Route path="/proyecto/:nameSection?" element={<Suspense fallback={<LoadingComponent/>}><Proyect /></Suspense>} />
+                <Route path="/configuracion" element={<Suspense fallback={<LoadingComponent/>}><Configuration /></Suspense>} />
             </Routes>
         </>
     );

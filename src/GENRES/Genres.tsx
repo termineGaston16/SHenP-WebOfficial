@@ -4,6 +4,7 @@ import { useQuery } from "react-query";
 import { getGeneros } from "../FIREBASE/Index";
 import ListOfProjectsByGender from "./Elements/ListOfProjectsByGender";
 import { Gender } from "../FIREBASE/Interface/Types";
+import LoadingComponent from "../SHENP/LoadingComponents/LoadingComponent";
 
 export default function Genres() {
     const [localGeneratorList, setLocalGeneratorList] = useState<Gender[]>([]);
@@ -28,7 +29,7 @@ export default function Genres() {
 
         observer.current = new IntersectionObserver(entries => {
             if (entries[0].isIntersecting) {
-                refetch(); 
+                refetch();
             }
         });
 
@@ -57,7 +58,7 @@ export default function Genres() {
                     )
                 })}
 
-                {isLoading && <span>Cargando Géneros...</span>}
+                {isLoading && <LoadingComponent />}
                 {isError && <span>Ocurrió un error inesperado.</span>}
             </ul>
         </main>

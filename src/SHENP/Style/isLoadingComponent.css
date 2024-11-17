@@ -1,0 +1,19 @@
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.is-loading-component {
+    display: inline-block;
+    width: 5vw;
+    height: 5vw;
+    border: 5px solid rgba(34, 34, 34, 0.141);
+    border-top: 5px solid white;
+    border-radius: 50%;
+    animation: spin .7s linear infinite;
+}
