@@ -2,6 +2,10 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { ProjectPreview } from "../../FIREBASE/Interface/Types";
 import { Link } from "react-router-dom";
 import '../Style/results.css';
+import IsLoadingComponent from "../../SHENP/LoadingComponents/IsLoadingComponent";
+import IsErrorComponent from "../../SHENP/LoadingComponents/IsErrorComponent";
+import NoResultsComponent from "../../SHENP/LoadingComponents/NoResultsComponent";
+import BackgroudProyectNule from '../../../public/background-proyect-nule.png'
 
 interface Props {
     listOfProyect: ProjectPreview[] | undefined;
@@ -46,7 +50,10 @@ const Results: React.FC<Props> = ({ listOfProyect, isLoading, isError }) => {
         }
     }, [listOfProyect, getMoreResults]);
 
-    if (resultsByParts.length < 1) return (<span>Universos no encontrados...</span>);
+
+    if (isLoading) return (<IsLoadingComponent />)
+    if (isError) return (<IsErrorComponent />)
+    if (resultsByParts.length < 1) return (<NoResultsComponent />);
 
     return (<ul className="results">
         {resultsByParts.map((result, index) => {
@@ -57,16 +64,14 @@ const Results: React.FC<Props> = ({ listOfProyect, isLoading, isError }) => {
                     className="results__item"
                 >
                     <h4 className="results__item__h4">{result.category}</h4>
-                    <div className="results__item__container-img">
-                        <img style={{width:'100%'}} src={result.front_page} alt={`Portada del proyecto ${result.official_title}`} />
+                    <div  style={{ backgroundImage: `url(${BackgroudProyectNule})` }}
+                     className="results__item__container-img">
+                        <img style={{ width: '100%' }} src={result.front_page} alt={`Portada del proyecto ${result.official_title}`} />
                     </div>
                     <h2 className="results__item__h2">{result.official_title}</h2>
                 </li>
             </Link>)
         })}
-
-        {isLoading && <span>Cargando Géneros...</span>}
-        {isError && <span>Ocurrió un error inesperado.</span>}
     </ul>);
 }
 

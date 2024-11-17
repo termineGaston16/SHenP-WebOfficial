@@ -5,11 +5,13 @@ import './Style/header.css'
 import { Link } from "react-router-dom";
 import { useQuery } from "react-query";
 import { getCatergories } from "../FIREBASE/Index";
+import LogoWeb from '../../public/Logo_Web.png'
+import BackGroundWeb from '../../public/background_web.png'
 
 export default function Header() {
     const [openHeader, setOpenHeader] = useState<string[]>(['', ''])
-    const [logoSrc, setLogoSrc] = useState<string>(localStorage.getItem('logotipo_actual') ?? './././public/logos/Logo_Web.png');
-    const [backGroundSrc, setBackGroundSrc] = useState<string>(localStorage.getItem('background_actual') ?? './././public/backgrounds/background_web.png');
+    const [logoSrc, setLogoSrc] = useState<string>(localStorage.getItem('logotipo_actual') ?? LogoWeb);
+    const [backGroundSrc, setBackGroundSrc] = useState<string>(localStorage.getItem('background_actual') ?? BackGroundWeb);
     const [opactityInLocal, setOpactityInLocal] = useState<string>(localStorage.getItem('opacidad_actual') ?? '0.5');
 
     const { data: localCategoryList = [], isError, isLoading } = useQuery({
@@ -20,8 +22,8 @@ export default function Header() {
 
     useEffect(() => {
         const handleStorageChange = () => {
-            setLogoSrc(localStorage.getItem('logotipo_actual') ?? './././public/logos/Logo_Web.png');
-            setBackGroundSrc(localStorage.getItem('background_actual') ?? './././public/backgrounds/background_web.png');
+            setLogoSrc(localStorage.getItem('logotipo_actual') ?? LogoWeb);
+            setBackGroundSrc(localStorage.getItem('background_actual') ?? BackGroundWeb);
             setOpactityInLocal(localStorage.getItem('opacidad_actual') ?? '0.5');
         };
 

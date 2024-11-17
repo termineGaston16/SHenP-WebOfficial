@@ -22,8 +22,7 @@ export default function Browse() {
         retry: 2,                                     // Número de intentos de reintento si la consulta falla
         retryDelay: 2000,                             // Tiempo en milisegundos entre cada reintento si la consulta falla
         refetchInterval: false,                     // Intervalo para refetch automático cada 30 minutos (1800000 ms)
-        staleTime: 1800000,                           // Tiempo en el cual la caché se considera "fresca" (30 minutos); no hará refetch automático en ese tiempo
-        cacheTime: 3600000,
+        cacheTime: 0,
         enabled: !!querySearch || !!category
     })
 

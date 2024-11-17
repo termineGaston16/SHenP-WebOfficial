@@ -32,9 +32,17 @@
 .who-we-are__image-data__h4{
     font-size: clamp(17px, 1.5vw, 100px);
     font-style: italic;
+
+    background: linear-gradient(45deg, rgb(200, 0, 255), blue);
+    filter: drop-shadow(0px 0px 1px white);
+    color: transparent;
+    background-clip: text;
 }
 .who-we-are__image-data__h2{
     font-size: clamp(23px, 2.4vw, 100px);
+    background: linear-gradient(45deg, rgb(252, 252, 252), aqua);
+    background-clip: text;
+    color: transparent;
 }
 
 .who-we-are__image-data__description, .who-we-are__image-data__link{
@@ -43,10 +51,14 @@
 }
 
 .who-we-are__image-data__logo{
-    border: 1px solid purple;
     aspect-ratio: 1/1;
     width: 12vw;
     min-width: 140px;
+    transition: .3s;
+}
+
+.who-we-are__image-data__logo:hover{
+    filter: drop-shadow(0px 0px 5px white);
 }
 
 

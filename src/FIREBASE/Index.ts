@@ -117,7 +117,6 @@ export async function getResultsByQuery(searchQuery: string): Promise<ProjectPre
 
     try {
         const response = await getDocs(collection(db, 'PROYECTOS'))
-
         return response.docs
             .map(proyecto => proyecto.data() as ProjectPreview)
             .filter(data => data.official_title.toLocaleLowerCase().includes(searchQuery))

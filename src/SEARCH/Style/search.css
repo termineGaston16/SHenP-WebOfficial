@@ -1,4 +1,4 @@
-.search{
+.search {
     min-width: 200px;
     height: 40px;
 
@@ -12,9 +12,12 @@
     justify-content: center;
     flex-direction: row;
     transition: .8s ease-in-out;
+
+    border-radius: 1rem;
 }
 
-.search__input, .search__btn-cancel{
+.search__input,
+.search__btn-cancel {
     width: 90%;
     height: 40px;
 
@@ -22,15 +25,28 @@
     outline: none;
 }
 
-.search__btn-cancel{
+.search__btn-cancel {
     width: 10%;
+    cursor: pointer;
+    background: linear-gradient(100deg, rgb(0, 0, 65), rgb(0, 0, 12));
+    color: white;
+    transition: .3s;
 }
 
-.search__input::-webkit-search-cancel-button{
+.search__btn-cancel:hover {
+    color: red;
+    text-shadow: 0px 0px 5px red;
+}
+
+.search__input::-webkit-search-cancel-button {
     display: none;
 }
 
-.search__input{
- padding: 0px 2vw;
-}
+.search__input {
+    padding: 0px 2vw;
+    background: linear-gradient(45deg, rgb(0, 55, 53), rgb(0, 0, 65));
 
+    color: white;
+    font-family: 'Retrograde', 'Times New Roman', Times, serif;
+    font-weight: 100;
+}

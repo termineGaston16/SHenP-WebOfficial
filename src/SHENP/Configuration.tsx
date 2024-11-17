@@ -2,6 +2,9 @@ import { useQuery } from "react-query"
 import { getOptions } from "../FIREBASE/Index"
 import { useEffect, useState } from "react"
 import './Style/configuration.css'
+import LoadingComponent from "./LoadingComponents/LoadingComponent"
+import IsErrorComponent from "./LoadingComponents/IsErrorComponent"
+import { toast } from "sonner"
 
 export default function Configuration() {
 
@@ -20,10 +23,12 @@ export default function Configuration() {
         switch (index) {
             case 0:
                 localStorage.setItem('logotipo_actual', urlLink)
+                toast.success('Event has been created')
                 break;
 
             case 1:
                 localStorage.setItem('background_actual', urlLink)
+                toast.success('Event has been created')
                 break;
             default:
                 break;
@@ -32,28 +37,34 @@ export default function Configuration() {
     }
 
     const [showOptions, setShowOptions] = useState<undefined | number>(undefined)
-    const [opactity, setOpacity] = useState<string>(()=>{
+    const [opactity, setOpacity] = useState<string>(() => {
         const inLocal = localStorage.getItem('opacidad_actual')
-        if(inLocal) return inLocal
+        if (inLocal) return inLocal
         return '0.5'
     })
 
-    useEffect(()=>{
+    useEffect(() => {
         localStorage.setItem('opacidad_actual', opactity)
         window.dispatchEvent(new Event('localStorageUpdated'));
-    },[opactity])
+    }, [opactity])
+
+
+    if(isError) return (<IsErrorComponent />)
 
     return (<main className="configuration">
+        {isLoading && <LoadingComponent />}
         <section className="configuration__container-options">
             <ul className="configuration__container-options__list">
-                {options.map((option, index) => (
+                {options.map((option, index) => (<>
+                    <hr className="configuration__container-options__list__item__hr" />
                     <li
+                        tabIndex={0}
                         className="configuration__container-options__list__item"
                         key={index} onClick={() => setShowOptions(index)}>
                         <h3 className="configuration__container-options__list__item__title">{option.title}</h3>
                         <p className="configuration__container-options__list__item__description">{option.description}</p>
                     </li>
-                ))}
+                </>))}
             </ul>
         </section>
         <section className="configuration__container-items">
@@ -72,7 +83,7 @@ export default function Configuration() {
                         {options[showOptions].content.map((item, indexItem) => (
                             <li key={indexItem}
                                 className="configuration__container-items__list__item"
-                                onClick={()=> changeOptions(showOptions, item.imgContent)}
+                                onClick={() => changeOptions(showOptions, item.imgContent)}
                             >
                                 <img
                                     className="configuration__container-items__list__item__img"
@@ -84,8 +95,5 @@ export default function Configuration() {
                 )
             )}
         </section>
-
-        {isLoading && <span>Cargando Opciones...</span>}
-        {isError && <span>Ocurrió un error inesperado.</span>}
     </main>)
 }

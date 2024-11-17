@@ -17,10 +17,15 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+
+    overflow-x: hidden;
+    overflow-y: auto;   
+    scrollbar-width: thin;
+    scrollbar-color: white rgba(255, 255, 255, 0);
 }
 
 .configuration__container-options__list{
-    width: 35vw;
+    width: 50vw;
     height: 90vh;
 
     list-style: none;
@@ -30,19 +35,38 @@
     justify-content: start;
     flex-direction: column;
     gap: 1vw;
+}
 
-    overflow-x: hidden;
-    overflow-y: auto;
-    scrollbar-width: thin;
+.configuration__container-options__list__item__hr{
+    width: 100%;
+    border: 1px solid white;
+    box-shadow: 0px 0px 10px white;
 }
 
 .configuration__container-options__list__item{
-    background-color: rgba(255, 255, 255, 0.342);
-    width: 100%;
+    width: 80%;
+    height: 15vw;
     min-height: 10vw;
     cursor: pointer;
     padding: 1vw;
+
+    background: radial-gradient(circle at 50% 80%, rgba(43, 43, 43, 0.123), rgba(18, 18, 18, 0.172));
+    border-radius: 1rem;
+    transition: .3s;
 }
+
+.configuration__container-options__list__item:hover{
+    margin-left: 3vw;
+    box-shadow: 0px 0px 10px white;
+}
+
+.configuration__container-options__list__item:focus{
+    margin-left: 3vw;
+    box-shadow: 0px 0px 10px white;
+    background: radial-gradient(circle at 50% 80%, rgba(43, 43, 43, 0.502), rgba(18, 18, 18, 0.626));
+}
+
+
 
 .configuration__container-options__list__item__title, .configuration__container-options__list__item__description{
     font-weight: 100;
@@ -51,6 +75,7 @@
     text-overflow: ellipsis;
     max-width: 30vw;
     text-wrap: nowrap;
+    transition: .3s;
 }
 .configuration__container-options__list__item__title{
     font-size: clamp(18px, 1.5vw, 100px);
@@ -73,7 +98,6 @@
 }
 
 .configuration__container-items__list__item{
-    background-color: rgba(240, 248, 255, 0.515);
     aspect-ratio: 1/1;
 
     display: flex;
@@ -81,6 +105,11 @@
     justify-content: center;
     flex-direction: column;
     cursor: pointer;
+    transition: .3s;
+}
+
+.configuration__container-items__list__item:hover{
+    filter: drop-shadow(0px 0px 5px white);
 }
 
 .configuration__container-items__list__item__img{
@@ -95,4 +124,72 @@
     overflow: hidden;
     text-overflow: ellipsis;
     text-wrap: nowrap;
+}
+
+.configuration__container-items__h3{
+    font-size: clamp(14px, 2vw, 100px);
+    font-weight: 100;
+}
+
+.configuration__container-items__inputRange {
+    -webkit-appearance: none; /* Elimina estilos predeterminados */
+    width: 70%; /* Ancho del slider */
+    height: 8px; /* Grosor de la barra */
+    background: #8e8e8e; /* Color del track */
+    border-radius: 5px; /* Bordes redondeados */
+    outline: none; /* Sin borde al enfocar */
+}
+
+.configuration__container-items__inputRange::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px; /* Tamaño del botón */
+    height: 16px;
+    background: aqua; /* Color del botón */
+    border-radius: 50%; /* Botón circular */
+    cursor: pointer;
+}
+
+.configuration__container-items__inputRange::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    background: #ff7a18;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.configuration__container-items__inputRange:focus {
+    background: #ccc; /* Cambia el color del track al enfocar */
+}
+
+@media (max-width: 768px) {
+    .configuration{
+        display: flex;
+        align-items: start;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .configuration__container-options, .configuration__container-items{
+        justify-content: start;
+        margin-top: 2vw;
+    }
+    
+
+    .configuration__container-options__list{
+        width: 90vw;
+    }
+
+    .configuration__container-options__list__item{
+        height: 25vw;
+    }
+
+    .configuration__container-options__list__item__title, .configuration__container-options__list__item__description{
+        max-width: 80vw;
+    }
+
+    .configuration__container-items__list{
+        grid-template-columns: repeat(auto-fit, 20vw);
+    }
+
 }

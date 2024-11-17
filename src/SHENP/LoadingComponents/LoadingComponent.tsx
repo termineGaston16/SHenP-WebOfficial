@@ -14,7 +14,8 @@ export default function LoadingComponent() {
         'Descargando consola PPT...',
         '¿Ramirez, dónde estás?',
         'Iniciando guerra contra el imperio...',
-        'Usando poderes...'
+        'Usando poderes...',
+        '¡Joder, que buenas transiciones!'
     ])
 
     useEffect(()=>{
