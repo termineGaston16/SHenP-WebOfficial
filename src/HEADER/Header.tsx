@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { IoMdHome, IoIosSettings } from "react-icons/io";
 
 import LocalCategoryList from "./AsynchronousComponent/LocalCategoryList";
 import './Style/header.css'
@@ -49,16 +48,16 @@ export default function Header() {
             <hr className="header__hr" />
             <ul className="header__list">
                 <Link to={'/'} className="header__list__item__link">
-                    <li className="header__list__item">SHenP Crew <IoMdHome /></li>
+                    <li className="header__list__item">SHenP Crew</li>
                 </Link>
 
                 <LocalCategoryList
                     localCategoryList={localCategoryList} isError={isError} isLoading={isLoading}
-                    className={'header__list__item'}
+                    className={'header__list__item'} className2={'header__list__item__link'}
                 />
 
                 <Link to={'/configuracion'} className="header__list__item__link">
-                    <li className="header__list__item">Configuración <IoIosSettings /></li>
+                    <li className="header__list__item">Configuración</li>
                 </Link>
             </ul>
             <hr className="header__hr" />

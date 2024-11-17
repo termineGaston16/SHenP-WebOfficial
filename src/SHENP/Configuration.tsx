@@ -13,7 +13,7 @@ export default function Configuration() {
         retryDelay: 2000,                             // Tiempo en milisegundos entre cada reintento si la consulta falla
         refetchInterval: 1800000,                     // Intervalo para refetch automático cada 30 minutos (1800000 ms)
         staleTime: 1800000,                           // Tiempo en el cual la caché se considera "fresca" (30 minutos); no hará refetch automático en ese tiempo
-        cacheTime: 3600000,                           // Tiempo que la caché permanece en memoria después de no usarse (1 hora) 
+        cacheTime: 0                                  // Elimina el caché inmediatamente cuando el componente se desmonta
     })
 
     const changeOptions = (index: number, urlLink: string) => {

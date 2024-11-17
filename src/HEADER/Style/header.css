@@ -64,7 +64,6 @@
     overflow-y: auto;
     overflow-x: none;
     scrollbar-width: thin;
-    gap: 1rem;
 }
 
 .header__list__item {
@@ -75,7 +74,10 @@
     font-size: clamp(14px, 1vw, 100px);
     margin: 0px 10px;
     gap: 0.5rem;
+
+    text-transform: uppercase;
 }
+
 
 .header__copy {
     text-align: center;
@@ -88,7 +90,6 @@
 }
 
 .header__list__item__link {
-    width: 100%;
     padding: 0.5vw;
     display: flex;
     justify-content: start;
@@ -99,9 +100,15 @@
     transition: .3s;
 }
 
-.header__list__item__link:hover{
-    text-shadow: 0px 0px 20px white;
+.header__list__item__link:hover {
+    text-shadow: 0px 0px 5px white;
     padding-left: 1.5vw;
+    background-color: rgba(255, 255, 255, 0.182);
+}
+
+.header__list__item__link:focus {
+    padding-left: 2vw;
+    background-color: rgba(0, 255, 255, 0.115);
 }
 
 .background {

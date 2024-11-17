@@ -3,6 +3,9 @@ import { useParams } from "react-router-dom"
 import { getProyect } from "../FIREBASE/Index"
 import './Style/proyect.css'
 import { useState } from "react"
+import LoadingComponent from "../SHENP/LoadingComponents/LoadingComponent"
+import IsErrorComponent from "../SHENP/LoadingComponents/IsErrorComponent"
+import BackgroudProyectNule from '../../public/background-proyect-nule.png'
 
 export default function Proyect() {
 
@@ -17,7 +20,9 @@ export default function Proyect() {
     })
 
     const { nameSection } = useParams()
-    if (!nameSection) return (<span>Nombre inválido</span>)
+
+    if (!nameSection) return (<main className="proyectMain">Debe ingresar el nombre exacto de un proyecto en la barra de búsqueda. 
+    <br /> Ejemplo: /proyecto/exe world 2</main>)
 
     const { data: proyect = undefined, isError, isLoading } = useQuery({
         queryKey: ['proyect'],
@@ -26,13 +31,18 @@ export default function Proyect() {
         retry: 2,                                     // Número de intentos de reintento si la consulta falla
         retryDelay: 2000,                             // Tiempo en milisegundos entre cada reintento si la consulta falla
         refetchInterval: false,                         // Intervalo para refetch automático cada 30 minutos (1800000 ms)
+        cacheTime: 0                                  // Elimina el caché inmediatamente cuando el componente se desmonta
     })
 
-    if (!proyect) return (<span>Proyecto no encontrado</span>)
+    if (isLoading) return (<main className="proyectMain"><LoadingComponent /></main>)
 
-    return (<main className="proyect">
+    if (isError) return (<main className="proyectMain"><IsErrorComponent /></main>)
+
+    if (proyect) return (<main className="proyect">
         <section className="proyect__component-one">
-            <div className="proyect__component-one__official-cover-container">
+            <div className="proyect__component-one__official-cover-container"
+                style={{ backgroundImage: `url(${BackgroudProyectNule})` }}
+            >
                 <img
                     loading="lazy"
                     style={{ width: '100%' }}
@@ -64,10 +74,10 @@ export default function Proyect() {
             </div>
         </section>
         <section className="proyect__component-two">
-            <div className="proyect__component-two__official-logo-container">
+            <div 
+            className="proyect__component-two__official-logo-container">
                 <img
                     loading="lazy"
-                    style={{ width: '100%' }}
                     className="proyect__component-two__official-logo-container__logo"
                     src={proyect.logo_link}
                     alt={`Logo Oficial del proyecto ${proyect.name_section}`} />
@@ -81,8 +91,9 @@ export default function Proyect() {
                             link: p,
                             show: true
                         })}
+                        style={{ backgroundImage: `url(${BackgroudProyectNule})` }}
                         className="proyect__component-two__list-gallery__item"
-                        key={i}><img style={{ width: '100%' }} loading="lazy" src={p} alt={`${proyect.name_section} galería número: ${i}`} />
+                        key={i}><img style={{ width: '100%'}} loading="lazy" src={p} alt={`${proyect.name_section} galería número: ${i}`} />
                     </li>
                 </>))}
             </ul>
@@ -97,12 +108,10 @@ export default function Proyect() {
                 })}
                 type="button">⨉</button>
             <img
+                style={{ backgroundImage: `url(${BackgroudProyectNule})` }}
                 loading="lazy"
-                style={{ width: '50%' }}
                 className="proyect__show-image__img"
                 src={showImage.link} alt={`${proyect.name_section} galería número: ${showImage.index}`} />
         </div>}
-        {isLoading && <span>Cargando Proyecto...</span>}
-        {isError && <span>Ocurrió un error inesperado.</span>}
     </main>)
 }

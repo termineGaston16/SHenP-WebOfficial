@@ -38,7 +38,8 @@
 }
 
 .lost-proyects__list__item {
-    background-color: rgba(255, 255, 255, 0.312);
+    background: radial-gradient(circle at 10% 20%, rgba(255, 0, 0, 0.631), rgba(0, 0, 255, 0.418));
+    
     aspect-ratio: 16/9;
 
     display: flex;
@@ -59,6 +60,19 @@
     gap: 0.6vw;
 }
 
+.lost-proyects__list__item__poster-content{
+    background: radial-gradient(circle at 20% 60%, rgb(21, 21, 21), rgb(56, 56, 56));
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.lost-proyects__list__item__poster-content__img{
+    width: 100%;
+}
+
 .lost-proyects__list__item__data-content__h2 {
     font-size: clamp(14px, 1.2vw, 100px) !important;
     font-weight: 100;
@@ -73,6 +87,12 @@
 .lost-proyects__list__item__data-content__h4 {
     font-size: clamp(10px, 1vw, 100px);
     font-weight: 100;
+    scrollbar-width: thin;
+
+    scrollbar-color: white rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.561);
+    border-radius: 8px;
+    padding: 5px;
 }
 
 .lost-proyects__list__item__data-content__h4 {

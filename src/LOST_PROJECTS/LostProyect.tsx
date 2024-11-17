@@ -3,6 +3,8 @@ import { ProjectLost } from "../FIREBASE/Interface/Types"
 import { useQuery } from "react-query"
 import { getProyectsLost } from "../FIREBASE/Index"
 import './Style/lostProyect.css'
+import LoadingComponent from "../SHENP/LoadingComponents/LoadingComponent"
+import IsErrorComponent from "../SHENP/LoadingComponents/IsErrorComponent"
 
 export default function LostProyect() {
 
@@ -46,20 +48,21 @@ export default function LostProyect() {
             <br /> A modo de homenaje, tienen su espacio aquí.
         </span>
 
+        {isLoading && <LoadingComponent />}
         <ul className="lost-proyects__list">
             {listOfProyectLost.map((proyecto, index) => {
                 const isLast = index === listOfProyectLost.length - 1
 
                 return (
-                    <li 
+                    <li
                         key={index}
                         ref={isLast ? lastLostProyectFunction : null}
                         className="lost-proyects__list__item"
                     >
-                        <section  className="lost-proyects__list__item__poster-content">
-                            <img 
-                            className="lost-proyects__list__item__poster-content__img"
-                            src={proyecto.front_page} alt={`Portada del proyecto perdido: ${proyecto.official_title}`} />
+                        <section className="lost-proyects__list__item__poster-content">
+                            <img
+                                className="lost-proyects__list__item__poster-content__img"
+                                src={proyecto.front_page} alt={`Portada del proyecto perdido: ${proyecto.official_title}`} />
                         </section>
                         <section className="lost-proyects__list__item__data-content">
                             <h2 className="lost-proyects__list__item__data-content__h2">{proyecto.official_title}</h2>
@@ -71,9 +74,7 @@ export default function LostProyect() {
 
                 )
             })}
-
-            {isLoading && <span>Cargando Géneros...</span>}
-            {isError && <span>Ocurrió un error inesperado.</span>}
+            {isError && <IsErrorComponent />}
         </ul>
     </main>)
 }

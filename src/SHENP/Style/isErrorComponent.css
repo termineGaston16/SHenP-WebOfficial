@@ -18,7 +18,7 @@
 }
 
 .ir-error-component__title{
-    color: red;
+    color: rgb(255, 150, 150);
     font-size: clamp(18px, 1.5vw, 100px);
     font-weight: 100;
     text-shadow: 0px 0px 1vw red;

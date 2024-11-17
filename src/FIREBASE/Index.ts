@@ -137,7 +137,6 @@ export async function getResultsByQuery(searchQuery: string): Promise<ProjectPre
 
 // OBTENER PROYECTO
 export async function getProyect(nameSectionQuery: string): Promise<Proyecto | undefined> {
-
     try {
         const q = query(collection(db, 'PROYECTOS'), where('name_section', '==', nameSectionQuery))
         return (await getDocs(q)).docs[0].data() as Proyecto
@@ -146,8 +145,6 @@ export async function getProyect(nameSectionQuery: string): Promise<Proyecto | u
         console.error(error)
         throw error
     }
-
-    return undefined
 }
 
 // OBTENER PROYECTOS POR CATEGORIA
