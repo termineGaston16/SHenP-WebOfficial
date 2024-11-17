@@ -3,9 +3,9 @@ import { getProyectsByGender } from "../../FIREBASE/Index";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Proyecto } from "../../FIREBASE/Interface/Types";
 import { useQuery } from "react-query";
-import IsLoadingComponent from "../../SHENP/LoadingComponents/isLoadingComponent";
 import IsErrorComponent from "../../SHENP/LoadingComponents/IsErrorComponent";
 import BackgroudProyectNule from '../../../public/background-proyect-nule.png'
+import IsLoadingComponent from "../../SHENP/LoadingComponents/IsLoadingComponent";
 
 interface Props {
     resultGenre: string,
