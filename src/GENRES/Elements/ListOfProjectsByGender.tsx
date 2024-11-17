@@ -3,6 +3,9 @@ import { getProyectsByGender } from "../../FIREBASE/Index";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Proyecto } from "../../FIREBASE/Interface/Types";
 import { useQuery } from "react-query";
+import IsLoadingComponent from "../../SHENP/LoadingComponents/isLoadingComponent";
+import IsErrorComponent from "../../SHENP/LoadingComponents/IsErrorComponent";
+import BackgroudProyectNule from '../../../public/background-proyect-nule.png'
 
 interface Props {
     resultGenre: string,
@@ -57,12 +60,14 @@ const ListOfProjectsByGender: React.FC<Props> = ({ resultGenre, isLast, lastGenr
                         <Link
                             key={indexProyect} to={`/proyecto/${proyect.name_section}`}
                             className="genres__list__item__results__link"
+                            style={{ backgroundImage: `url(${BackgroudProyectNule})` }}
                         >
                             <li
                                 ref={isLastProject ? lastProjectElementRef : null}
                                 className="genres__list__item__results__link__item"
                             >
                                 <img
+                                    loading="lazy"
                                     src={proyect.front_page}
                                     alt={`Portada del proyecto: ${proyect.official_title}`}
                                     className="genres__list__item__results__link__item__img"
@@ -71,9 +76,9 @@ const ListOfProjectsByGender: React.FC<Props> = ({ resultGenre, isLast, lastGenr
                         </Link>
                     );
                 })}
-                {isLoading && <span>Cargando Géneros...</span>}
-                {isError && <span>Ocurrió un error inesperado.</span>}
+                {isLoading && <IsLoadingComponent />}
             </ul>
+            {isError && <IsErrorComponent />}
         </li>
     );
 };

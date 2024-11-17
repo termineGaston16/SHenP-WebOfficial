@@ -18,6 +18,7 @@
     justify-content: center;
     flex-direction: column;
     gap: 10vw;
+    margin-bottom: 2vw;
     
 }
 
@@ -38,11 +39,13 @@
     font-size: clamp(14px, 2vw, 100px);
     text-align: start;
     width: 100%;
+    text-shadow: 0px 0px 1vw white;
     
 }
 
 .genres__list__item__hr{
     width: 90%;
+    box-shadow: 0px 0px 1vw white;
     
 }
 
@@ -61,13 +64,30 @@
     gap: 3vw;
 
     list-style: none;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 255, 255, 0.652) rgba(0, 0, 255, 0);
 }
 
 .genres__list__item__results__link{
-    background-color: palevioletred;
+    border: 1px solid white;
     aspect-ratio: 16/9;
     min-width: 20vw;
     width: 20vw;
+
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .3s;
+}
+
+.genres__list__item__results__link:hover{
+    box-shadow: 0px 0px 3vw white;
+    margin: 0px 1vw;
 }
 
 .genres__list__item__results__link__item__img{

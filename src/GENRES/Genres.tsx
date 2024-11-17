@@ -5,6 +5,7 @@ import { getGeneros } from "../FIREBASE/Index";
 import ListOfProjectsByGender from "./Elements/ListOfProjectsByGender";
 import { Gender } from "../FIREBASE/Interface/Types";
 import LoadingComponent from "../SHENP/LoadingComponents/LoadingComponent";
+import IsErrorComponent from "../SHENP/LoadingComponents/IsErrorComponent";
 
 export default function Genres() {
     const [localGeneratorList, setLocalGeneratorList] = useState<Gender[]>([]);
@@ -41,7 +42,7 @@ export default function Genres() {
             setLocalGeneratorList(listResult);
         }
     }, [listResult]);
-
+    
     return (
         <main className="genres">
             <ul className="genres__list">
@@ -57,10 +58,11 @@ export default function Genres() {
                         />
                     )
                 })}
-
-                {isLoading && <LoadingComponent />}
-                {isError && <span>Ocurrió un error inesperado.</span>}
             </ul>
+
+            
+            {isLoading && <LoadingComponent />}
+            {isError && <IsErrorComponent />}
         </main>
     );
 }

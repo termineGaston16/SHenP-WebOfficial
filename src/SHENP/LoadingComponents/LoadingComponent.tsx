@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import '../Style/loadingComponents.css'
+import LoadingComponentImg from '../../../public/logo-loading.png'
 
 export default function LoadingComponent() {
 
@@ -24,7 +25,7 @@ export default function LoadingComponent() {
     return (<div className="loading-component">
         <img 
         loading='lazy'
-        className="loading-component__img" src='../../../public/logo-loading.png' alt="Logo de cargando componente básico." />
+        className="loading-component__img" src={LoadingComponentImg} alt="Logo de cargando componente básico." />
         <span className="loading-component__phrase">{phrase[idPhrase]}</span>
     </div>)
 }

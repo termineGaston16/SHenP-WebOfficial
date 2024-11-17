@@ -37,6 +37,7 @@ export async function getCatergories(): Promise<Category[]> {
 
     } catch (error) {
         console.error(error)
+        throw error
     }
 
     return result;
@@ -65,6 +66,7 @@ export async function getGeneros(localGeneratorList: Gender[]): Promise<Gender[]
 
     } catch (error) {
         console.error(error);
+        throw error
     }
 
     return [];
@@ -78,10 +80,11 @@ export async function getProyectsByGender(resultGenre: string, listOfProjectsAcc
         const proyectsByGenders = querySnapshotGender.docs.map(doc => {
             return doc.data() as Proyecto
         })
-
+        
         return [...listOfProjectsAccordingToGenre, ...proyectsByGenders.slice(listOfProjectsAccordingToGenre.length, listOfProjectsAccordingToGenre.length + 4)]
     } catch (error) {
         console.error(error)
+        throw error
     }
 
     return [];
@@ -103,6 +106,7 @@ export async function getProyectsLost(listOfProyectLost: ProjectLost[]): Promise
         return [...listOfProyectLost, ...listProyectsLost];
     } catch (error) {
         console.error(error);
+        throw error
     }
 
     return [];
@@ -126,6 +130,7 @@ export async function getResultsByQuery(searchQuery: string): Promise<ProjectPre
 
     } catch (error) {
         console.error(error)
+        throw error
     }
     return []
 }
@@ -139,6 +144,7 @@ export async function getProyect(nameSectionQuery: string): Promise<Proyecto | u
 
     } catch (error) {
         console.error(error)
+        throw error
     }
 
     return undefined
@@ -162,6 +168,7 @@ export async function getResultsByCategory(categoryQuery: string): Promise<Proje
         })
     } catch (error) {
         console.error(error)
+        throw error
     }
     return []
 }
@@ -182,6 +189,7 @@ export async function getOptions(): Promise<Configuration<{ titleContent: string
         }).flat(); // Esto aplanará el array resultante si data.map() genera arrays dentro del array
     } catch (error) {
         console.error(error);
+        throw error
     }
 
     return [];
