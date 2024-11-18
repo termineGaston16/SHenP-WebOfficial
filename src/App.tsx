@@ -12,10 +12,11 @@ const LostProyect = lazy(() => import('./LOST_PROJECTS/LostProyect'));
 const Browse = lazy(() => import('./SEARCH/Browse'));
 const Proyect = lazy(() => import('./PROJECT/Proyect'));
 const Configuration = lazy(()=> import('./SHENP/Configuration'))
+const ComicComponent = lazy(()=> import('./SHENP/ComicsLocales/ComicComponent'))
 
 const AppContent = () => {
     const location = useLocation();
-    const componentsWithoutNavbar = ['/proyecto/', '/configuracion'];
+    const componentsWithoutNavbar = ['/proyecto/', '/configuracion', '/comic'];
     const showNavHeader = !componentsWithoutNavbar.some(route => location.pathname.startsWith(route));
 
     return (
@@ -32,6 +33,7 @@ const AppContent = () => {
                 <Route path="/:category?" element={<Suspense fallback={<LoadingComponent/>}><Browse /></Suspense>} />
                 <Route path="/proyecto/:nameSection?" element={<Suspense fallback={<LoadingComponent/>}><Proyect /></Suspense>} />
                 <Route path="/configuracion" element={<Suspense fallback={<LoadingComponent/>}><Configuration /></Suspense>} />
+                <Route path="/comic/:nameSection?" element={<Suspense fallback={<LoadingComponent/>}><ComicComponent/></Suspense>} />
             </Routes>
         </>
     );

@@ -61,5 +61,17 @@
     filter: drop-shadow(0px 0px 5px white);
 }
 
+.who-we-are__image-data hr{
+    width: 40%;
+}
+.who-we-are__image-data iframe{
+    border: 1px solid white;
+    margin: 1vw 0px;
+
+    aspect-ratio: 16/9;
+    width: 30vw;
+    min-width: 250px;
+}
+
 
 

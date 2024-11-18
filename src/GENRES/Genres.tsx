@@ -38,6 +38,7 @@ export default function Genres() {
     }, [isLoading, refetch]);
 
     useEffect(() => {
+        document.title = 'Géneros | SHenP Web'
         if (listResult.length > 0) {
             setLocalGeneratorList(listResult);
         }

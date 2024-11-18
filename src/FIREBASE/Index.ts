@@ -1,4 +1,4 @@
-import { Category, Configuration, Gender, ProjectLost, ProjectPreview, Proyecto } from "./Interface/Types";
+import { Category, Comic, Configuration, Gender, ProjectLost, ProjectPreview, Proyecto } from "./Interface/Types";
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
@@ -80,7 +80,7 @@ export async function getProyectsByGender(resultGenre: string, listOfProjectsAcc
         const proyectsByGenders = querySnapshotGender.docs.map(doc => {
             return doc.data() as Proyecto
         })
-        
+
         return [...listOfProjectsAccordingToGenre, ...proyectsByGenders.slice(listOfProjectsAccordingToGenre.length, listOfProjectsAccordingToGenre.length + 4)]
     } catch (error) {
         console.error(error)
@@ -189,4 +189,20 @@ export async function getOptions(): Promise<Configuration<{ titleContent: string
     }
 
     return [];
+}
+
+// OBTENER COMIC
+export async function getComic(nameSectionQuery: string): Promise<Comic> {
+    try {
+        const q = query(collection(db, 'PROYECTOS'), where('name_section', '==', nameSectionQuery))
+        const proyect = (await getDocs(q)).docs[0].data() as Proyecto
+        return {
+            logo: proyect.logo_link,
+            pages: proyect.gallery_link
+        }
+
+    } catch (error) {
+        console.error(error)
+        throw error
+    }
 }

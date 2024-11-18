@@ -59,3 +59,8 @@ export interface Configuration<T>{
     description: string,
     content: T
 }
+
+export interface Comic{
+    logo: string,
+    pages: string[]
+}

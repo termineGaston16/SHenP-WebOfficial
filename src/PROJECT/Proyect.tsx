@@ -2,7 +2,7 @@ import { useQuery } from "react-query"
 import { useParams } from "react-router-dom"
 import { getProyect } from "../FIREBASE/Index"
 import './Style/proyect.css'
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import LoadingComponent from "../SHENP/LoadingComponents/LoadingComponent"
 import IsErrorComponent from "../SHENP/LoadingComponents/IsErrorComponent"
 import BackgroudProyectNule from '../../public/background-proyect-nule.png'
@@ -18,11 +18,12 @@ export default function Proyect() {
         link: '',
         show: false
     })
+    const [isComic, setIsComic] = useState<boolean>(false)
 
     const { nameSection } = useParams()
 
-    if (!nameSection) return (<main className="proyectMain">Debe ingresar el nombre exacto de un proyecto en la barra de búsqueda. 
-    <br /> Ejemplo: /proyecto/exe world 2</main>)
+    if (!nameSection) return (<main className="proyectMain">Debe ingresar el nombre exacto de un proyecto en la barra de búsqueda.
+        <br /> Ejemplo: /proyecto/exe world 2</main>)
 
     const { data: proyect = undefined, isError, isLoading } = useQuery({
         queryKey: ['proyect'],
@@ -33,6 +34,14 @@ export default function Proyect() {
         refetchInterval: false,                         // Intervalo para refetch automático cada 30 minutos (1800000 ms)
         cacheTime: 0                                  // Elimina el caché inmediatamente cuando el componente se desmonta
     })
+
+    useEffect(() => {
+        document.title = `Proyecto... | SHenP Web`
+        if(proyect) document.title = `${proyect.official_title} | SHenP Web`
+        
+        if (proyect?.category === 'Comic') return setIsComic(true)
+        return setIsComic(false)
+    }, [proyect])
 
     if (isLoading) return (<main className="proyectMain"><LoadingComponent /></main>)
 
@@ -74,8 +83,8 @@ export default function Proyect() {
             </div>
         </section>
         <section className="proyect__component-two">
-            <div 
-            className="proyect__component-two__official-logo-container">
+            <div
+                className="proyect__component-two__official-logo-container">
                 <img
                     loading="lazy"
                     className="proyect__component-two__official-logo-container__logo"
@@ -85,7 +94,7 @@ export default function Proyect() {
             <p className="proyect__component-two__description">{proyect.description}</p>
             <ul className="proyect__component-two__list-gallery">
                 {proyect.gallery_link.map((p, i) => (<>
-                    <li
+                    {!isComic && <li
                         onClick={() => setShowImage({
                             index: i,
                             link: p,
@@ -93,8 +102,8 @@ export default function Proyect() {
                         })}
                         style={{ backgroundImage: `url(${BackgroudProyectNule})` }}
                         className="proyect__component-two__list-gallery__item"
-                        key={i}><img style={{ width: '100%'}} loading="lazy" src={p} alt={`${proyect.name_section} galería número: ${i}`} />
-                    </li>
+                        key={i}><img style={{ width: '100%' }} loading="lazy" src={p} alt={`${proyect.name_section} galería número: ${i}`} />
+                    </li>}
                 </>))}
             </ul>
         </section>

@@ -66,7 +66,7 @@ const Results: React.FC<Props> = ({ listOfProyect, isLoading, isError }) => {
                     <h4 className="results__item__h4">{result.category}</h4>
                     <div  style={{ backgroundImage: `url(${BackgroudProyectNule})` }}
                      className="results__item__container-img">
-                        <img style={{ width: '100%' }} src={result.front_page} alt={`Portada del proyecto ${result.official_title}`} />
+                        <img style={{ width: '100%' }} src={result.front_page} alt={`Portada del proyecto ${result.official_title}`} loading="lazy"/>
                     </div>
                     <h2 className="results__item__h2">{result.official_title}</h2>
                 </li>

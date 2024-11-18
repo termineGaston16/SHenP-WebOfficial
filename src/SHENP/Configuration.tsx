@@ -44,6 +44,7 @@ export default function Configuration() {
     })
 
     useEffect(() => {
+        document.title= 'Configuración | SHenP Web'
         localStorage.setItem('opacidad_actual', opactity)
         window.dispatchEvent(new Event('localStorageUpdated'));
     }, [opactity])
@@ -87,7 +88,7 @@ export default function Configuration() {
                             >
                                 <img
                                     className="configuration__container-items__list__item__img"
-                                    src={item.imgContent} alt={item.titleContent} />
+                                    src={item.imgContent} alt={item.titleContent} loading="lazy" />
                                 <span className="configuration__container-items__list__item__titleContent">{item.titleContent}</span>
                             </li>
                         ))}

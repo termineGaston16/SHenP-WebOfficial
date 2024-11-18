@@ -8,7 +8,7 @@ export default function NavHeader() {
         <ul className="nav-header__list">
             <Link to={'/'} className="nav-header__list__link"
             ><li className="nav-header__list__link__item">¿Quiénes somos? 
-            <img className="nav-header__list__link__item__img"
+            <img loading="lazy" className="nav-header__list__link__item__img"
             src={LogoWhoWeAre} alt="logo-whoWeAre" />
             </li></Link>
             <Link to={'/generos'} className="nav-header__list__link"

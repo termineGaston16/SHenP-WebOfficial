@@ -36,6 +36,7 @@ export default function LostProyect() {
     }, [isLoading, refetch])
 
     useEffect(() => {
+        document.title = 'Proyectos Perdidos | SHenP Web'
         if (proyectsLostsListResults && proyectsLostsListResults.length > 0) {
             setListOfProyectLost(proyectsLostsListResults);
         }
@@ -61,6 +62,7 @@ export default function LostProyect() {
                     >
                         <section className="lost-proyects__list__item__poster-content">
                             <img
+                                loading="lazy"
                                 className="lost-proyects__list__item__poster-content__img"
                                 src={proyecto.front_page} alt={`Portada del proyecto perdido: ${proyecto.official_title}`} />
                         </section>

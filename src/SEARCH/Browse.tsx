@@ -11,7 +11,7 @@ export default function Browse() {
 
     const [querySearch, setQuerySearch] = useState<string | undefined>(undefined)
     const { category } = useParams()
-    
+
     const { data: listOfProyect, isLoading, isError } = useQuery({
         queryKey: ['query', querySearch, category],
         queryFn: async () => {
@@ -26,10 +26,16 @@ export default function Browse() {
         enabled: !!querySearch || !!category
     })
 
-    useEffect(()=>{
-        if(category) setQuerySearch(undefined)
-    },[category])
-    
+    useEffect(() => {
+        if (category) {
+            document.title = `${category} | SHenP Web`
+        } else {
+            document.title = `Buscar | SHenP Web`
+        }
+
+        if (category) setQuerySearch(undefined)
+    }, [category])
+
     return (<main className="browse">
         {!category && <Search setQuerySearch={setQuerySearch} />}
         {(querySearch || category) &&

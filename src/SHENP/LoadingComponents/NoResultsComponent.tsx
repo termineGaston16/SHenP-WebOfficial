@@ -6,6 +6,6 @@ export default function NoResultsComponent(){
     return(<div 
     style={{backgroundImage:`url(${NoResultImg})`}}
     className='no-results-component'>
-        <img src={NoResultText} alt="Resultados no encontrados..." />
+        <img loading="lazy" src={NoResultText} alt="Resultados no encontrados..." />
     </div>)
 }
